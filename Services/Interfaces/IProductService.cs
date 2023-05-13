@@ -8,8 +8,8 @@ namespace Leo.Services.Interfaces
         Task<IList<Product>> ReadProducts(int customerId);
         Task<IList<Product>> GetProducts();
         Task<Product> Add(Product dto);
-        Product Update(Product dto);
-        bool Remove(Product dto);
+        Task Update(Product dto);
+        Task Remove(Product dto);
         Task<bool> isProductExists(int productId);
         Task<Product> GetProductBy(int productId);
     }

@@ -178,7 +178,7 @@ namespace Leo.Controllers
 
             try
             {
-                 _productService.Update(product);
+                 await _productService.Update(product);
                 
                 if(m.Count > 0)
                 {

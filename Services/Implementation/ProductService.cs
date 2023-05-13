@@ -44,22 +44,16 @@ namespace Leo.Services.Implementation
             return obj;
         }
 
-        public bool Remove(Product dto)
+        public async Task Remove(Product dto)
         {
             _context.Products.Remove(dto);
-
-            bool deleted = true;
-            var entry = _context.Products.Entry(dto);
-            if (entry.State == EntityState.Deleted) return deleted;
-            return !deleted;
+            await _context.SaveChangesAsync();
         }
 
-        public  Product Update(Product dto)
+        public async Task Update(Product dto)
         {
              _context.Products.Update(dto);
-            var entry = _context.Products.Entry(dto);
-            if (entry.State == EntityState.Modified) return dto;
-            return null;
+             await _context.SaveChangesAsync();
         }
     }
 }
